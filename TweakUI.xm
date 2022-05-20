@@ -110,7 +110,7 @@
        if(!isNonLatinKeyboard) return UIEdgeInsetsMake(orig.top, 0, KeyboardHeightLand, 0);
        return UIEdgeInsetsMake(orig.top, orig.left, KeyboardHeightLand, orig.right);
     }
-    else if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+    else {
        if(!isNonLatinKeyboard) return UIEdgeInsetsMake(orig.top, 0, KeyboardHeight, 0);
        return UIEdgeInsetsMake(orig.top, orig.left, KeyboardHeight, orig.right);
     }

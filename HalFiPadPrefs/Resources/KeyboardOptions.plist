@@ -106,11 +106,11 @@
                 <key>isSegmented</key>
                 <true/>
                 <key>default</key>
-                <real>48</real>
+                <real>10</real>
                 <key>key</key>
                 <string>bottomHeightKBLand</string>
                 <key>max</key>
-                <real>100</real>
+                <real>20</real>
                 <key>min</key>
                 <integer>0</integer>
                 <key>showValue</key>

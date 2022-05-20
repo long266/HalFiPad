@@ -22,7 +22,7 @@ typedef struct SBIconCoordinate {
 
 NSInteger screenRound, appDockRound, bottomInset;
 NSInteger HomeBarWidth, HomeBarHeight, HomeBarRadius;
-static NSInteger KeyboardHeight = 48, KeyboardBound = -15;
+static NSInteger KeyboardHeight = 48, KeyboardHeightLand = 10, KeyboardBound = -15;
 
 short statusBarMode, gesturesMode, screenMode, batteryColorMode;
 
