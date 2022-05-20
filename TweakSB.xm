@@ -207,23 +207,31 @@ static BOOL nopas = YES;
 %hook CCUIHeaderPocketView
 - (void)setFrame:(CGRect)frame {
     if (gesturesMode == 4) {
-        if (statusBarMode == 2 || (screenRound > 15 && statusBarMode == 1))
-            %orig(CGRectSetY(frame, -11));
+        if (statusBarMode == 1)
+            %orig(CGRectSetY(frame, 0));
+        else if (statusBarMode == 2 || (screenRound > 15 && statusBarMode == 1))
+            %orig(CGRectSetY(frame, -1));
         else if (statusBarMode == 3)
             %orig(CGRectSetY(frame, 9));
-        else if (statusBarMode == 0)
-            %orig(CGRectSetY(frame, -34));
+        else if (statusBarMode == 4)
+            %orig(CGRectSetY(frame, 0));
+        else if (statusBarMode == 5)
+            %orig(CGRectSetY(frame, 0));
         else
-            %orig(CGRectSetY(frame, -15));
+            %orig(CGRectSetY(frame, -0));
     } else {
-        if(statusBarMode == 2 || (screenRound > 15 && statusBarMode == 1))
-            %orig(CGRectSetY(frame, -20));
-        else if (statusBarMode == 0)
-            %orig(CGRectSetY(frame, -42));
+        if (statusBarMode == 1)
+            %orig(CGRectSetY(frame, 0));
+        else if(statusBarMode == 2 || (screenRound > 15 && statusBarMode == 1))
+            %orig(CGRectSetY(frame, 0));
         else if (statusBarMode == 3)
             %orig;
+        else if (statusBarMode == 4)
+            %orig(CGRectSetY(frame, 0));
+        else if (statusBarMode == 5)
+            %orig(CGRectSetY(frame, 0));
         else
-            %orig(CGRectSetY(frame, -24));
+            %orig(CGRectSetY(frame, -0));
     }
 }
 %end
@@ -805,11 +813,11 @@ static CGFloat offset = 0;
 -(id)initWithFrame:(CGRect)arg1 {
     CGFloat const screenWidth = UIScreen.mainScreen.bounds.size.width;
 	if (screenWidth <= 320) {
-		offset = 20;
+		offset = 7;
 	} else if (screenWidth <= 375) {
-		offset = 35;
+		offset = 15;
 	} else if (screenWidth <= 414) {
-		offset = 28;
+		offset = 10;
 	}
     return %orig;
 }
@@ -955,7 +963,7 @@ static CGFloat offset = 0;
             // Global options
             if (isBatteryPercent) %init(BatteryPercentage);
             if (isCCGrabber) %init(ccGrabber);
-            if (!isCCStatusbar) %init(NoCCStatusBar);
+            if (!isCCStatusbar || statusBarMode == 0) %init(NoCCStatusBar);
             if (isNoBreadcrumb) %init(NoBreadcrumb);
             if (!isiPXCombination) %init(OriginalButtons);
             // Round Corner
