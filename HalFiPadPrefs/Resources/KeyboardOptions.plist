@@ -94,6 +94,36 @@
             </dict>
             <dict>
                 <key>label</key>
+                <string>◦ Bottom Landscape Offset:</string>
+                <key>cell</key>
+                <string>PSGroupCell</string>
+                <key>id</key>
+                <string>heightKbIDLand</string>
+		    </dict>
+            <dict>
+                <key>cell</key>
+                <string>PSSliderCell</string>
+                <key>isSegmented</key>
+                <true/>
+                <key>default</key>
+                <real>48</real>
+                <key>key</key>
+                <string>bottomHeightKBLand</string>
+                <key>max</key>
+                <real>100</real>
+                <key>min</key>
+                <integer>0</integer>
+                <key>showValue</key>
+                <true/>
+                <key>defaults</key>
+                <string>com.hius.HalFiPadPrefs</string>
+                <key>PostNotification</key>
+                <string>com.hius.HalFiPadPrefs.settingschanged</string>
+                <key>id</key>
+                <string>heightKbIDLand3</string>
+            </dict>
+            <dict>
+                <key>label</key>
                 <string>◦ Globe/Dictation Offset:</string>
                 <key>cell</key>
                 <string>PSGroupCell</string>

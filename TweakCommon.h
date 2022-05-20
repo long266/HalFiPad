@@ -81,6 +81,7 @@ static void updatePrefs() {
         HomeBarHeight = intValueForKey(@"homeBarHeight");
         HomeBarRadius = intValueForKey(@"homeBarRadius");
         KeyboardHeight = intValueForKey(@"bottomHeightKB");
+        KeyboardHeightLand = intValueForKey(@"bottomHeightKBLand");
         KeyboardBound = intValueForKey(@"boundKeyboard");
         //iPad features:
         isiPadDock = boolValueForKey(@"ipadDock");

@@ -106,8 +106,14 @@
 %hook UIKeyboardImpl
 +(UIEdgeInsets)deviceSpecificPaddingForInterfaceOrientation:(long long)arg1 inputMode:(id)arg2 {
 	UIEdgeInsets const orig = %orig;
-    if(!isNonLatinKeyboard) return UIEdgeInsetsMake(orig.top, 0, KeyboardHeight, 0);
-    return UIEdgeInsetsMake(orig.top, orig.left, KeyboardHeight, orig.right);
+    if (UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation)){
+       if(!isNonLatinKeyboard) return UIEdgeInsetsMake(orig.top, 0, KeyboardHeightLand, 0);
+       return UIEdgeInsetsMake(orig.top, orig.left, KeyboardHeightLand, orig.right);
+    }
+    else if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+       if(!isNonLatinKeyboard) return UIEdgeInsetsMake(orig.top, 0, KeyboardHeight, 0);
+       return UIEdgeInsetsMake(orig.top, orig.left, KeyboardHeight, orig.right);
+    }
 }
 %end
 
